@@ -1,5 +1,7 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { en } from '@payloadcms/translations/languages/en'
+import { ja } from '@payloadcms/translations/languages/ja'
 
 import sharp from 'sharp' // sharp-import
 import path from 'path'
@@ -91,4 +93,7 @@ export default buildConfig({
     },
     tasks: [],
   },
+  i18n: {
+    supportedLanguages: { en, ja },
+  }
 })
