@@ -96,5 +96,5 @@ export default buildConfig({
   },
   i18n: {
     supportedLanguages: { en, ja },
-  }
+  },
 })

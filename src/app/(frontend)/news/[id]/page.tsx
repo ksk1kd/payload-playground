@@ -24,7 +24,7 @@ export default async function Page({ params: paramsPromise }: Args) {
     },
   })
 
-  const news =  result.docs?.[0]
+  const news = result.docs?.[0]
 
   if (!news) notFound()
 
@@ -32,9 +32,7 @@ export default async function Page({ params: paramsPromise }: Args) {
     <article className="mx-40 py-20">
       <time className="block mb-5">{new Date(news.publishedAt).toLocaleDateString()}</time>
       <h1 className="mb-12 text-4xl">{news.title}</h1>
-      {news.body && (
-        <RichText data={news.body} />
-      )}
+      {news.body && <RichText data={news.body} />}
     </article>
   )
 }
