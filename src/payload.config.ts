@@ -14,6 +14,7 @@ import { News } from './collections/News'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
+import { EmergencyNotice } from './EmergencyNotice/config'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -69,7 +70,7 @@ export default buildConfig({
   }),
   collections: [Pages, Posts, News, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [Header, Footer, EmergencyNotice],
   plugins: [
     ...plugins,
     // storage-adapter-placeholder
