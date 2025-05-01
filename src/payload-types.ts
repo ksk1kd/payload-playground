@@ -808,10 +808,13 @@ export interface AllField {
     [k: string]: unknown;
   } | null;
   select?: ('option1' | 'option2') | null;
-  'tab-1-text'?: string | null;
-  'tab-2-text'?: string | null;
   textarea?: string | null;
   upload?: (number | null) | Media;
+  'text-in-collapsible'?: string | null;
+  'text1-in-row'?: string | null;
+  'text2-in-row'?: string | null;
+  'text-in-tab1'?: string | null;
+  'text-in-tab2'?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1282,10 +1285,13 @@ export interface AllFieldsSelect<T extends boolean = true> {
   relationship?: T;
   'rich-text'?: T;
   select?: T;
-  'tab-1-text'?: T;
-  'tab-2-text'?: T;
   textarea?: T;
   upload?: T;
+  'text-in-collapsible'?: T;
+  'text1-in-row'?: T;
+  'text2-in-row'?: T;
+  'text-in-tab1'?: T;
+  'text-in-tab2'?: T;
   updatedAt?: T;
   createdAt?: T;
 }

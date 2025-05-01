@@ -182,29 +182,6 @@ export const AllFields: CollectionConfig = {
       },
     },
     {
-      type: 'tabs',
-      tabs: [
-        {
-          label: 'Tab One Label',
-          fields: [
-            {
-              name: 'tab-1-text',
-              type: 'text',
-            },
-          ],
-        },
-        {
-          label: 'Tab Two Label',
-          fields: [
-            {
-              name: 'tab-2-text',
-              type: 'text',
-            },
-          ],
-        },
-      ],
-    },
-    {
       name: 'textarea',
       type: 'textarea',
       label: {
@@ -220,6 +197,81 @@ export const AllFields: CollectionConfig = {
         ja: 'アップロード',
       },
       relationTo: 'media',
+    },
+    {
+      type: 'collapsible',
+      label: {
+        en: 'Collapsible',
+        ja: '折りたたみ',
+      },
+      fields: [
+        {
+          name: 'text-in-collapsible',
+          type: 'text',
+          label: {
+            en: 'Text in Collapsible',
+            ja: '折りたたみ内のテキスト',
+          },
+        },
+      ],
+    },
+    {
+      type: 'row',
+      fields: [
+        {
+          name: 'text1-in-row',
+          label: {
+            en: 'Text1 in Row',
+            ja: 'Row内のテキスト1',
+          },
+          type: 'text',
+          admin: {
+            width: '50%',
+          },
+        },
+        {
+          name: 'text2-in-row',
+          label: {
+            en: 'Text2 in Row',
+            ja: 'Row内のテキスト2',
+          },
+          type: 'text',
+          admin: {
+            width: '50%',
+          },
+        },
+      ],
+    },
+    {
+      type: 'tabs',
+      tabs: [
+        {
+          label: 'Tab One Label',
+          fields: [
+            {
+              name: 'text-in-tab1',
+              label: {
+                en: 'Text in Tab One',
+                ja: 'タブ1内のテキスト',
+              },
+              type: 'text',
+            },
+          ],
+        },
+        {
+          label: 'Tab Two Label',
+          fields: [
+            {
+              name: 'text-in-tab2',
+              label: {
+                en: 'Text in Tab Two',
+                ja: 'タブ2内のテキスト',
+              },
+              type: 'text',
+            },
+          ],
+        },
+      ],
     },
   ],
 }
