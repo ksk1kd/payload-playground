@@ -1,4 +1,3 @@
-import { en } from '@payloadcms/translations/languages/en'
 import type { CollectionConfig } from 'payload'
 
 export const AllFields: CollectionConfig = {
