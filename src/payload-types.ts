@@ -791,8 +791,27 @@ export interface AllField {
     | null;
   number?: number | null;
   radio?: ('option1' | 'option2') | null;
-  textarea?: string | null;
+  relationship?: (number | null) | Page;
+  'rich-text'?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   select?: ('option1' | 'option2') | null;
+  'tab-1-text'?: string | null;
+  'tab-2-text'?: string | null;
+  textarea?: string | null;
+  upload?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -1260,8 +1279,13 @@ export interface AllFieldsSelect<T extends boolean = true> {
   json?: T;
   number?: T;
   radio?: T;
-  textarea?: T;
+  relationship?: T;
+  'rich-text'?: T;
   select?: T;
+  'tab-1-text'?: T;
+  'tab-2-text'?: T;
+  textarea?: T;
+  upload?: T;
   updatedAt?: T;
   createdAt?: T;
 }

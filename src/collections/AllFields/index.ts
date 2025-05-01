@@ -1,3 +1,4 @@
+import { en } from '@payloadcms/translations/languages/en'
 import type { CollectionConfig } from 'payload'
 
 export const AllFields: CollectionConfig = {
@@ -140,11 +141,20 @@ export const AllFields: CollectionConfig = {
       ],
     },
     {
-      name: 'textarea',
-      type: 'textarea',
+      name: 'relationship',
+      type: 'relationship',
       label: {
-        en: 'Textarea',
-        ja: 'テキストエリア',
+        en: 'Relationship',
+        ja: 'リレーションシップ',
+      },
+      relationTo: 'pages',
+    },
+    {
+      name: 'rich-text',
+      type: 'richText',
+      label: {
+        en: 'Rich Text',
+        ja: 'リッチテキスト',
       },
     },
     {
@@ -170,6 +180,46 @@ export const AllFields: CollectionConfig = {
         en: 'Select',
         ja: 'セレクト',
       },
+    },
+    {
+      type: 'tabs',
+      tabs: [
+        {
+          label: 'Tab One Label',
+          fields: [
+            {
+              name: 'tab-1-text',
+              type: 'text',
+            },
+          ],
+        },
+        {
+          label: 'Tab Two Label',
+          fields: [
+            {
+              name: 'tab-2-text',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'textarea',
+      type: 'textarea',
+      label: {
+        en: 'Textarea',
+        ja: 'テキストエリア',
+      },
+    },
+    {
+      name: 'upload',
+      type: 'upload',
+      label: {
+        en: 'Upload',
+        ja: 'アップロード',
+      },
+      relationTo: 'media',
     },
   ],
 }
