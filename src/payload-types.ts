@@ -70,6 +70,7 @@ export interface Config {
     pages: Page;
     posts: Post;
     news: News;
+    'all-fields': AllField;
     media: Media;
     categories: Category;
     users: User;
@@ -87,6 +88,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     news: NewsSelect<false> | NewsSelect<true>;
+    'all-fields': AllFieldsSelect<false> | AllFieldsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -759,6 +761,43 @@ export interface News {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "all-fields".
+ */
+export interface AllField {
+  id: number;
+  title: string;
+  array?:
+    | {
+        title: string;
+        id?: string | null;
+      }[]
+    | null;
+  checkbox?: boolean | null;
+  code?: string | null;
+  date?: string | null;
+  email?: string | null;
+  group: {
+    child1: string;
+    child2: string;
+  };
+  json?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  number?: number | null;
+  radio?: ('option1' | 'option2') | null;
+  textarea?: string | null;
+  select?: ('option1' | 'option2') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -940,6 +979,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'news';
         value: number | News;
+      } | null)
+    | ({
+        relationTo: 'all-fields';
+        value: number | AllField;
       } | null)
     | ({
         relationTo: 'media';
@@ -1189,6 +1232,36 @@ export interface NewsSelect<T extends boolean = true> {
   title?: T;
   body?: T;
   publishedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "all-fields_select".
+ */
+export interface AllFieldsSelect<T extends boolean = true> {
+  title?: T;
+  array?:
+    | T
+    | {
+        title?: T;
+        id?: T;
+      };
+  checkbox?: T;
+  code?: T;
+  date?: T;
+  email?: T;
+  group?:
+    | T
+    | {
+        child1?: T;
+        child2?: T;
+      };
+  json?: T;
+  number?: T;
+  radio?: T;
+  textarea?: T;
+  select?: T;
   updatedAt?: T;
   createdAt?: T;
 }
