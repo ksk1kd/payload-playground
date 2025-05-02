@@ -212,6 +212,14 @@ export const AllFields: CollectionConfig = {
             ja: '折りたたみ内のテキスト',
           },
         },
+        {
+          name: 'date-in-collapsible',
+          type: 'date',
+          label: {
+            en: 'Date in Collapsible',
+            ja: '折りたたみ内の日付',
+          },
+        },
       ],
     },
     {

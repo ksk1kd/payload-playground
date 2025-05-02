@@ -811,6 +811,7 @@ export interface AllField {
   textarea?: string | null;
   upload?: (number | null) | Media;
   'text-in-collapsible'?: string | null;
+  'date-in-collapsible'?: string | null;
   'text1-in-row'?: string | null;
   'text2-in-row'?: string | null;
   'text-in-tab1'?: string | null;
@@ -1288,6 +1289,7 @@ export interface AllFieldsSelect<T extends boolean = true> {
   textarea?: T;
   upload?: T;
   'text-in-collapsible'?: T;
+  'date-in-collapsible'?: T;
   'text1-in-row'?: T;
   'text2-in-row'?: T;
   'text-in-tab1'?: T;
