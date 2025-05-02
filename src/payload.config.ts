@@ -99,4 +99,23 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { en, ja },
   },
+  localization: {
+    locales: [
+      {
+        label: {
+          en: 'English',
+          ja: '英語',
+        },
+        code: 'en',
+      },
+      {
+        label: {
+          en: 'Japanese',
+          ja: '日本語',
+        },
+        code: 'ja',
+      },
+    ],
+    defaultLocale: 'en',
+  },
 })

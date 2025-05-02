@@ -25,6 +25,7 @@ export const News: CollectionConfig = {
       },
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'body',
@@ -33,6 +34,7 @@ export const News: CollectionConfig = {
         ja: '本文',
       },
       type: 'richText',
+      localized: true,
     },
     {
       name: 'publishedAt',

@@ -114,7 +114,7 @@ export interface Config {
     footer: FooterSelect<false> | FooterSelect<true>;
     'emergency-notice': EmergencyNoticeSelect<false> | EmergencyNoticeSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'ja';
   user: User & {
     collection: 'users';
   };
