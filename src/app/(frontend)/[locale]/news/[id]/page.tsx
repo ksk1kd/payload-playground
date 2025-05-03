@@ -2,6 +2,7 @@ import configPromise from '@payload-config'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { getPayload } from 'payload'
 import { notFound } from 'next/navigation'
+import { headers as getHeaders } from 'next/headers'
 import type { Config } from '@/payload-types'
 
 type Args = {
@@ -15,6 +16,8 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { id, locale } = await paramsPromise
 
   const payload = await getPayload({ config: configPromise })
+  const headers = await getHeaders()
+  const { user } = await payload.auth({ headers })
 
   const result = await payload.find({
     collection: 'news',
@@ -25,6 +28,8 @@ export default async function Page({ params: paramsPromise }: Args) {
       },
     },
     locale,
+    user,
+    overrideAccess: false,
   })
 
   const news = result.docs?.[0]

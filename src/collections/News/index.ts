@@ -52,4 +52,18 @@ export const News: CollectionConfig = {
       },
     },
   ],
+  versions: {
+    drafts: true,
+  },
+  access: {
+    read: ({ req }) => {
+      if (req.user) return true
+
+      return {
+        _status: {
+          equals: 'published',
+        },
+      }
+    },
+  },
 }
