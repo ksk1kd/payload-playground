@@ -65,5 +65,19 @@ export const News: CollectionConfig = {
         },
       }
     },
+    update: ({ req, data }) => {
+      if (!req.user?.roles) return false
+
+      if (data?._status === 'published') {
+        return req.user.roles.some((role) => ['administrator', 'approver'].includes(role))
+      }
+
+      return true
+    },
+    delete: ({ req }) => {
+      if (!req.user?.roles) return false
+
+      return req.user.roles.some((role) => ['administrator', 'approver'].includes(role))
+    },
   },
 }

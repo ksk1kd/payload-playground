@@ -21,6 +21,34 @@ export const Users: CollectionConfig = {
       name: 'name',
       type: 'text',
     },
+    {
+      name: 'roles',
+      type: 'select',
+      options: [
+        {
+          label: {
+            en: 'Editor',
+            ja: '編集者',
+          },
+          value: 'editor',
+        },
+        {
+          label: {
+            en: 'Approver',
+            ja: '承認者',
+          },
+          value: 'approver',
+        },
+        {
+          label: {
+            en: 'Administrator',
+            ja: '管理者',
+          },
+          value: 'administrator',
+        },
+      ],
+      hasMany: true,
+    },
   ],
   timestamps: true,
 }
