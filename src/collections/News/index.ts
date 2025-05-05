@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { resetAwaitingApprovalFlag } from './hooks/resetAwaitingApprovalFlag'
+
 export const News: CollectionConfig = {
   slug: 'news',
   admin: {
@@ -51,6 +53,17 @@ export const News: CollectionConfig = {
         position: 'sidebar',
       },
     },
+    {
+      name: 'isAwaitingApproval',
+      label: {
+        en: 'Awaiting Approval',
+        ja: '承認待ち',
+      },
+      type: 'checkbox',
+      admin: {
+        position: 'sidebar',
+      },
+    },
   ],
   versions: {
     drafts: true,
@@ -79,5 +92,8 @@ export const News: CollectionConfig = {
 
       return req.user.roles.some((role) => ['administrator', 'approver'].includes(role))
     },
+  },
+  hooks: {
+    beforeChange: [resetAwaitingApprovalFlag],
   },
 }
