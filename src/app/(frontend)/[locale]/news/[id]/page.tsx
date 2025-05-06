@@ -38,7 +38,12 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   return (
     <article className="mx-40 py-20">
-      <time className="block mb-5">{new Date(news.publishedAt).toLocaleDateString(locale)}</time>
+      <div className="block mb-5">
+        <time>Published at: {new Date(news.publishedAt).toLocaleDateString(locale)}</time>
+        {news.customUpdatedAt && news.customUpdatedAt !== news.publishedAt && (
+          <time className="ml-4">Updated at: {new Date(news.customUpdatedAt).toLocaleDateString(locale)}</time>
+        )}
+      </div>
       <h1 className="mb-12 text-4xl">{news.title}</h1>
       {news.body && <RichText data={news.body} />}
     </article>

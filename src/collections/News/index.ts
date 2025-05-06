@@ -60,6 +60,20 @@ export const News: CollectionConfig = {
       },
     },
     {
+      name: 'customUpdatedAt',
+      label: {
+        en: 'Updated At',
+        ja: '更新日',
+      },
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'dayOnly',
+        },
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'isAwaitingApproval',
       label: {
         en: 'Awaiting Approval',

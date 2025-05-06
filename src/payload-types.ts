@@ -757,6 +757,7 @@ export interface News {
     [k: string]: unknown;
   } | null;
   publishedAt: string;
+  customUpdatedAt?: string | null;
   isAwaitingApproval?: boolean | null;
   updatedAt: string;
   createdAt: string;
@@ -1258,6 +1259,7 @@ export interface NewsSelect<T extends boolean = true> {
   title?: T;
   body?: T;
   publishedAt?: T;
+  customUpdatedAt?: T;
   isAwaitingApproval?: T;
   updatedAt?: T;
   createdAt?: T;
