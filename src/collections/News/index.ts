@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { lexicalEditor, BlockquoteFeature } from '@payloadcms/richtext-lexical'
 
 import { resetAwaitingApprovalFlag } from './hooks/resetAwaitingApprovalFlag'
 
@@ -37,6 +38,11 @@ export const News: CollectionConfig = {
       },
       type: 'richText',
       localized: true,
+      editor: lexicalEditor({
+        features: ({ rootFeatures }) => {
+          return [...rootFeatures, BlockquoteFeature()]
+        },
+      }),
     },
     {
       name: 'publishedAt',
