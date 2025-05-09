@@ -756,6 +756,14 @@ export interface News {
     };
     [k: string]: unknown;
   } | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
   publishedAt: string;
   customUpdatedAt?: string | null;
   isAwaitingApproval?: boolean | null;
@@ -1259,6 +1267,13 @@ export interface PostsSelect<T extends boolean = true> {
 export interface NewsSelect<T extends boolean = true> {
   title?: T;
   body?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
   publishedAt?: T;
   customUpdatedAt?: T;
   isAwaitingApproval?: T;

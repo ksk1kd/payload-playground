@@ -1,5 +1,10 @@
 import type { CollectionConfig } from 'payload'
 import { lexicalEditor, BlockquoteFeature } from '@payloadcms/richtext-lexical'
+import {
+  MetaDescriptionField,
+  MetaImageField,
+  MetaTitleField,
+} from '@payloadcms/plugin-seo/fields'
 
 import { resetAwaitingApprovalFlag } from './hooks/resetAwaitingApprovalFlag'
 
@@ -43,6 +48,21 @@ export const News: CollectionConfig = {
           return [...rootFeatures, BlockquoteFeature()]
         },
       }),
+    },
+    {
+      name: 'meta',
+      label: {
+        en: 'Meta',
+        ja: 'メタタグ',
+      },
+      type: 'group',
+      fields: [
+        MetaTitleField({}),
+        MetaDescriptionField({}),
+        MetaImageField({
+          relationTo: 'media',
+        })
+      ]
     },
     {
       name: 'publishedAt',
