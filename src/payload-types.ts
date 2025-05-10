@@ -197,7 +197,7 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | TextAndMediaBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -736,6 +736,32 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextAndMediaBlock".
+ */
+export interface TextAndMediaBlock {
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  media: number | Media;
+  mediaPostion: 'left' | 'right';
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'textAndMediaBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "news".
  */
 export interface News {
@@ -1130,6 +1156,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        textAndMediaBlock?: T | TextAndMediaBlockSelect<T>;
       };
   meta?:
     | T
@@ -1226,6 +1253,17 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextAndMediaBlock_select".
+ */
+export interface TextAndMediaBlockSelect<T extends boolean = true> {
+  text?: T;
+  media?: T;
+  mediaPostion?: T;
   id?: T;
   blockName?: T;
 }
