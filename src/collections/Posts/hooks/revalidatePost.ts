@@ -10,12 +10,16 @@ export const revalidatePost: CollectionAfterChangeHook<Post> = ({
   req: { payload, context },
 }) => {
   if (!context.disableRevalidate) {
+    const languages = Object.keys(payload.config.i18n.supportedLanguages);
+
     if (doc._status === 'published') {
-      const path = `/posts/${doc.slug}`
-
-      payload.logger.info(`Revalidating post at path: ${path}`)
-
-      revalidatePath(path)
+      languages.map((language) => {
+        const path = `/${language}/posts/${doc.slug}`
+  
+        payload.logger.info(`Revalidating post at path: ${path}`)
+  
+        revalidatePath(path)
+      })
       revalidateTag('posts-sitemap')
     }
 
