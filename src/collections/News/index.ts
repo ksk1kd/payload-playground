@@ -106,7 +106,9 @@ export const News: CollectionConfig = {
     },
   ],
   versions: {
-    drafts: true,
+    drafts: {
+      schedulePublish: true,
+    }
   },
   access: {
     read: ({ req }) => {

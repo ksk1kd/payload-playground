@@ -1893,6 +1893,10 @@ export interface TaskSchedulePublish {
       | ({
           relationTo: 'posts';
           value: number | Post;
+        } | null)
+      | ({
+          relationTo: 'news';
+          value: number | News;
         } | null);
     global?: string | null;
     user?: (number | null) | User;
