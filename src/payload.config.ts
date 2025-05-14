@@ -95,6 +95,13 @@ export default buildConfig({
       },
     },
     tasks: [],
+    // autoRun: [
+    //   {
+    //     cron: '*/1 * * * *',
+    //     limit: 100,
+    //     queue: 'default',
+    //   },
+    // ],
   },
   i18n: {
     supportedLanguages: { en, ja },
